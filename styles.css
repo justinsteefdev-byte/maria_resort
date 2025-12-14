@@ -448,7 +448,8 @@ img {
 
 .about-image img {
     width: 100%;
-    height: auto;
+    height: 450px;
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
@@ -794,11 +795,44 @@ img {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    padding: 14px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 50px;
     font-family: inherit;
+    font-size: 1rem;
+    color: var(--text-dark);
+    background-color: #f9f9f9;
     transition: var(--transition);
+}
+
+.form-group textarea {
+    border-radius: 20px;
+    resize: vertical;
+}
+
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%232E5D4B' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 12px;
+    cursor: pointer;
+}
+
+.form-group input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    min-height: 52px;
+    /* Match the height of text inputs/selects */
+    color: var(--text-light);
+    /* Placeholder-like color until selected */
+}
+
+/* When a date is selected or focused, make text darker (optional, requires JS or :valid pseudo-class if required) */
+.form-group input[type="date"]:focus,
+.form-group input[type="date"]:valid {
+    color: var(--text-dark);
 }
 
 .form-group input:focus,
@@ -806,7 +840,8 @@ img {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(46, 93, 75, 0.1);
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(46, 93, 75, 0.1);
 }
 
 .form-row {
